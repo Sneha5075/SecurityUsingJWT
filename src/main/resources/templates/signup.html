@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8"/>
+<title>this is home page</title>
+</head>
+<body>
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 offset-md-2">
+				<div class="my-card mt-1">
+				<div th:if="${session.message}"  th:classappend="${session.message.type}" class="alert" role="alert">
+				  <p th:text="${session.message.content}"></p>
+				  <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+				</div>
+					<h1 class="text-center">Signup Here!!!</h1>
+					<form action="" th:action="@{/do_register}" method="post">
+					 <div class="form_group">
+					    <label for="fname_field" class="form-label">FirstName</label>
+					    <input 
+					    name="firstName"
+					    type="text" 
+					    class="form-control" 
+					    id="fname_field" 
+					    aria-describedby="emailHelp"
+					    placeholder="enter your first name"
+					    required="required"/>
+					   </div>
+					   
+					   <div class="form_group">
+					    <label for="name_field" >LastName</label>
+					    <input
+					    name="LastName"
+					     type="text" 
+					    class="form-control" 
+					    id="name_field" 
+					    aria-describedby="emailHelp"
+					    placeholder="enter your Last name"/>
+					   </div>
+					   
+					   <div class="form_group">
+					    <label for="email_field">Email</label>
+					    <input 
+					    name="email"
+					    type="email" 
+					    class="form-control" 
+					    id="email_field" 
+					    aria-describedby="emailHelp"
+					    placeholder="enter your email"
+					    required="required"/>
+					   </div>
+					   
+					   <div class="form_group">
+					    <label for="password_field">Password</label>
+					    <input 
+					    name="password"
+					    type="password" 
+					    class="form-control" 
+					    id="password_field" 
+					    aria-describedby="emailHelp"
+					    placeholder="enter your password"
+					    required="required"/>
+					   </div>
+					   
+					    <div class="form_group">
+					    <label for="mobile_field">Mobile</label>
+					    <input 
+					    name="mobile"
+					    type="text" 
+					    class="form-control" 
+					    id="Mobile_field" 
+					    aria-describedby="emailHelp"
+					    placeholder="enter your number"
+					    required="required"/>
+					   </div>
+					   
+					   <div class="container">
+					   <button class="btn btn-primary">Submit</button>
+					   </div>
+					</form>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+</html>
